@@ -1,4 +1,3 @@
-FROM willywonka:ubuntu18.10
-RUN mkdir /WillyWonka
-RUN /bin/bash
-VOLUME /WillyWonka
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y nodejs net-tools yarn
+ENTRYPOINT /WillyWonka/wwbuild/buildall.sh
