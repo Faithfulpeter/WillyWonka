@@ -20,6 +20,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <img style={{width:"80vw"}} src="deltavlive.png" alt="deltavlive"></img>
       </div>
     );
   }
