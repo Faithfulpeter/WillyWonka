@@ -1,3 +1,7 @@
-FROM ubuntu:latest
-RUN apt-get update && apt-get install -y nodejs net-tools yarn
-ENTRYPOINT /WillyWonka/wwbuild/buildall.sh
+FROM node:8
+RUN mkdir /WillyWonka
+RUN mkdir /WillyWonka/wwbuild
+WORKDIR /WillyWonka/wwbuild
+RUN npm install -g yarn
+ENTRYPOINT [ "bash" ]
+CMD [ "/WillyWonka/wwbuild/buildall.sh" ]
