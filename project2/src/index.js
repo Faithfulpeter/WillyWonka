@@ -1,12 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+require('file-loader?name=[name].[ext]!./index.html');
+require('file-loader?name=[name].[ext]!./index.css');
+require('file-loader?name=[name].[ext]!./deltavlive.png');
 
-ReactDOM.render(<App />, document.getElementById('root'));
+async function fetchIp() {
+  for (; ;) {
+    var ip = await fetch('/api/ip').then(resp => resp.text()).catch(e => "Error");
+    document.getElementById("ip").innerText = `Connected To: ${ip}`;
+    await new Promise(re=>setTimeout(re, 250))
+  }
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+fetchIp();

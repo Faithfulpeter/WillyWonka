@@ -21,6 +21,13 @@ app.get('/', (req, res) => {
   res.send('Hello world\n');
 });
 
+app.get('/api/ip', (req, res) => {
+  require('dns').lookup(require('os').hostname(), function (err, add, fam) {
+    console.log('addr: '+add);
+    res.send(add);
+  })
+});
+
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
 console.log("Serving from", www);
