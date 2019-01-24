@@ -1,6 +1,6 @@
 require('file-loader?name=[name].[ext]!./index.html');
 require('file-loader?name=[name].[ext]!./index.css');
-require('file-loader?name=[name].[ext]!./deltavlive.png');
+require('file-loader?name=[name].[ext]!./index.png');
 
 async function fetchIp() {
   for (; ;) {
