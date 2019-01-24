@@ -7,10 +7,15 @@ const path = require('path');
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
+const www = process.execPath.match(/node.exe/)
+  ? path.join(__dirname,'../../build/www')
+  : path.join(path.dirname(process.execPath),'www');
+  
+
 // App
 const app = express();
 
-app.use(express.static(path.join(__dirname, '../project2/build')));
+app.use(express.static(www));
 
 app.get('/', (req, res) => {
   res.send('Hello world\n');
@@ -18,3 +23,4 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
+console.log("Serving from", www);

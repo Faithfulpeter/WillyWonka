@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
-  "bin": "src/server.js", 
+  "bin": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "build": "pkg -t node10-win-x64 --output build/server.exe ."
+    "build": "pkg -t node10-win-x64 --output ../build/server.exe ."
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "homepage": "https://github.com/Faithfulpeter/WillyWonka#readme",
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "pkg": "^4.3.7"
   }
 }
