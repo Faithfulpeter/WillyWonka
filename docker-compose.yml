@@ -1,0 +1,22 @@
+version: '2'
+services:
+  web:
+    image: node:8
+    volumes:
+      - ./project1:/home/projects/project1
+      - ./project2:/home/projects/project2
+      - ./build:/home/projects/build
+    environment:
+      - TCP_PORTS=8080
+    # command: bash -c "(cd /home/projects/project2; npm run build); (cd /home/projects/project1; npm start)"
+    command: bash -c "(cd /home/projects/project1; npm start)"
+  lb:
+    image: dockercloud/haproxy
+    links:
+      - web
+    ports:
+      - '8888:80'
+      - '8080:8080'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      
