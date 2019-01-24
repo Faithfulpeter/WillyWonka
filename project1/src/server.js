@@ -7,7 +7,7 @@ const path = require('path');
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
-const www = process.execPath.match(/node.exe/)
+const www = process.execPath.match(/\/node/)
   ? path.join(__dirname,'../../build/www')
   : path.join(path.dirname(process.execPath),'www');
   
